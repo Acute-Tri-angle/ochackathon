@@ -2,12 +2,21 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  /* Since it's in the public folder, use the absolute path */
+  
+  /* Use / if image is in public folder */
+  background-image: url('./road.jpeg'); 
+  
+  /* This makes it fill the screen */
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position-y:  100%;
+  
   overflow: hidden;
-}
-.bg{
-  top:-50%;
-  background-image: "./road.jpeg";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* Keeps steering wheel at the bottom */
 }
 /* Lane positioning */
 .reckless-car {
@@ -15,13 +24,13 @@
   font-size: 50px;
   cursor: crosshair;
   transition: transform 0.1s;
-  animation: swerve 0.3s infinite alternate;
+  animation: swerve 1s infinite alternate;
 }
 
 /* Map lanes to horizontal positions */
-.lane-0 { left: 20%; top: 30%; }
+.lane-0 { left: 0%; top: 20%; }
 .lane-1 { left: 50%; top: 30%; transform: translateX(-50%); }
-.lane-2 { left: 70%; top: 30%; }
+.lane-2 { left: 75%; top: 10%; }
 
 .dashboard {
   position: absolute;
@@ -32,18 +41,17 @@
   border-top: 5px solid #7e7e7e;
 }
 
-.steering-wheel {
-    position: absolute;
-    bottom: 20px;
-    left: 30%;
-    transform: translateX(-50%);
-    width: 40vh;
-    height: 40vh;
-    background-Size: contain;
-    background-Repeat: no-repeat;
-  };
+.steering-wheel img {
+  width: 60vh; /* Scales with screen height */
+  height: auto;
+  position: absolute;
+  bottom: -10vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 @keyframes swerve {
-  from { margin-left: -10px; }
-  to { margin-left: 10px; }
+  from { margin-left: -100px; }
+  to { margin-left: 100px; }
 }
+

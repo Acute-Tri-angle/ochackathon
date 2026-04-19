@@ -6,12 +6,20 @@ import steering from './steeringwheel.png';
 import road from './road.jpeg';
 
 const Game = () => {
-  const [activeLane, setActiveLane] = useState(null); // null, 0, 1, or 2
+  const [activeLane, setActiveLane] = useState(null); 
   const [quota, setQuota] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const navigate = useNavigate();
 
-  //win
+  // Handle Game Over Alert
+  useEffect(() => {
+    if (isGameOver) {
+      alert("💥 CRASHED!");
+      window.location.reload(); // Restarts the game
+    }
+  }, [isGameOver]);
+
+  // Win condition
   useEffect(() => {
     if (quota >= 3) {
       alert("Shift complete! Roads are safe.");
@@ -19,55 +27,51 @@ const Game = () => {
     }
   }, [quota, navigate]);
 
-  // triggers random swerve function
+  // Trigger random swerve
   useEffect(() => {
     if (activeLane === null && !isGameOver) {
-      const wait = Math.random() * 3000 + 2000;
+      const wait = Math.random() * 2000 + 1000;
       const timer = setTimeout(() => {
-        setActiveLane(Math.floor(Math.random() * 3)); // generates lane 0, 1, or 2 for car
+        setActiveLane(Math.floor(Math.random() * 3)); 
       }, wait);
       return () => clearTimeout(timer);
     }
   }, [activeLane, isGameOver]);
 
-  //if cars don't get clicked in 5 sec, then crash happens
+  // Crash timer
   useEffect(() => {
-    if (activeLane !== null) {
+    if (activeLane !== null && !isGameOver) {
       const crashTimer = setTimeout(() => {
         setIsGameOver(true);
       }, 5000);
       return () => clearTimeout(crashTimer);
     }
-  }, [activeLane]);
+  }, [activeLane, isGameOver]);
 
   const handleCatch = () => {
     setQuota(q => q + 1);
-    setActiveLane(null); // Clear the car
-    // if time permits we add pull over cutscene
+    setActiveLane(null); 
   };
 
   return (
-    <div className="cockpit-view">
-      <div className="bg"><img src = {road} alt = "road" width="100vh" height="100vh"></img></div>
-      <div className="windshield">
-        {/* Render the reckless car only if activeLane is set */}
+    <div className="cockpit-view" style={{ backgroundImage: `url(${road})` }}>
+      <div>
         {activeLane !== null && (
           <div 
             className={`reckless-car lane-${activeLane}`} 
             onClick={handleCatch}
           >
-            <img src = {car} alt = "car" width="400" height="400"></img>
+            <img src={car} alt="car" className="car-image" />
           </div>
         )}
       </div>
 
-      {/*dashboard ui*/}
       <div className="dashboard">
-        <div className="steering-wheel"><img src = {steering} alt = "steering wheel" width="1000" height="1000"></img></div>
+        <div className="steering-wheel">
+          <img src={steering} alt="steering wheel" />
+        </div>
         <div className="quota-display">QUOTA: {quota}/3</div>
       </div>
-
-      {isGameOver && <div className="game-over">💥 CRASHED!</div>}
     </div>
   );
 };
