@@ -1,6 +1,9 @@
 import logo from './carlogo.jpeg';
 import './App.css';
-import { useState } from 'react';
+//import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 function Button({label, onClick, color = 'red'}) {
   const buttonstyle = {
@@ -19,12 +22,8 @@ function Button({label, onClick, color = 'red'}) {
   );
 }
 
-function handleClick(){
 
-}
-
-
-const App = () => {
+export const App = () => {
 
 return(
 <div className = "App-bg">
@@ -36,7 +35,10 @@ return(
     <div className = "App-whitetext">
       You are a police officer patroling on an eerie night. Your job is to be on the look out for any strange driving behaviors from other drivers. Can you keep the roads safe? Press the button below to start the night.</div>
     </div>
-  <div><Button label="start da game" /></div>
+  <div><Link to = {"/game"}>
+  <Button label="start da game"/>
+  </Link>
+  </div>
 </div>
 );
 
