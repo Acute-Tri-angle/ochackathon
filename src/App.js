@@ -44,12 +44,12 @@ return(
   </div>
   <div className = "App-textwrap">
     <div className = "App-whitetext">
-      You are a police officer patroling on an eerie night. Your job is to be on the look out for any strange driving behaviors from other drivers. Can you keep the roads safe? Press the button below to start the night.
+      You are a police officer patroling on an eerie night. Your job is to be on the look out for any strange driving behaviors from other drivers. You have 5 seconds to 'pull over' the cars, or something bad will happen... Can you keep the roads safe? Press the button below to start the night.
     </div>
   </div>
   <div className = "App-gameButtonHolder">
     <div><Link to = {"/game"}>
-      <Button label="start da game"/>
+      <Button label="Play!"/>
       </Link>
     </div>
   </div>

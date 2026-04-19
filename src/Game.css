@@ -2,10 +2,13 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #1a1a1a; /* Night road color */
+  /* Since it's in the public folder, use the absolute path */
   overflow: hidden;
 }
-
+.bg{
+  top:-50%;
+  background-image: "./road.jpeg";
+}
 /* Lane positioning */
 .reckless-car {
   position: absolute;
@@ -25,24 +28,20 @@
   bottom: 0;
   width: 100%;
   height: 30%;
-  background: #333; /* Car interior color */
-  border-top: 5px solid #444;
-}
-
-.donut {
-  position: absolute;
-  bottom: 20px;
-  left: 10%;
-  font-size: 60px;
+  background: #686868; /* Car interior color */
+  border-top: 5px solid #7e7e7e;
 }
 
 .steering-wheel {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 120px;
-}
+    position: absolute;
+    bottom: 20px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 40vh;
+    height: 40vh;
+    background-Size: contain;
+    background-Repeat: no-repeat;
+  };
 
 @keyframes swerve {
   from { margin-left: -10px; }

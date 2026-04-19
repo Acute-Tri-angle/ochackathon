@@ -2,6 +2,8 @@ import './Game.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import car from './car.png';
+import steering from './steeringwheel.png';
+import road from './road.jpeg';
 
 const Game = () => {
   const [activeLane, setActiveLane] = useState(null); // null, 0, 1, or 2
@@ -46,6 +48,7 @@ const Game = () => {
 
   return (
     <div className="cockpit-view">
+      <div className="bg"><img src = {road} alt = "road" width="100vh" height="100vh"></img></div>
       <div className="windshield">
         {/* Render the reckless car only if activeLane is set */}
         {activeLane !== null && (
@@ -60,8 +63,7 @@ const Game = () => {
 
       {/*dashboard ui*/}
       <div className="dashboard">
-        <div className="donut">🍩</div>
-        <div className="steering-wheel">🎡</div>
+        <div className="steering-wheel"><img src = {steering} alt = "steering wheel" width="1000" height="1000"></img></div>
         <div className="quota-display">QUOTA: {quota}/3</div>
       </div>
 
