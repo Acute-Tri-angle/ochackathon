@@ -22,7 +22,7 @@ function Button({label, onClick, color = 'red'}) {
   );
 }
 
-
+//title screen
 export const App = () => {
 
 return(
