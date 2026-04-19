@@ -5,44 +5,60 @@ import { Link } from 'react-router-dom';
 
 
 
-function Button({label, onClick, color = 'red'}) {
+
+
+
+function Button({label, onClick, color = 'maroon'}) {
   const buttonstyle = {
     backgroundColor: color,
     color: 'white',
-    padding: '1vh 60vh',
+    padding: '1vh 20vh',
     border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer'
+    borderRadius: '3vh',
+    cursor: 'pointer',
+    fontSize: '10vh',
+    fontWeight: 'bold',
   }
   return (
     <button style = {buttonstyle} onClick = {onClick}>
       {label}
     </button>
-    
+   
   );
 }
+
 
 //title screen
 export const App = () => {
 
+
 return(
 <div className = "App-bg">
-  <div className = "App-logo"><img src = {logo} alt = "carlogo" width="100" height="100"></img></div>
-  <div className = "App-centertext">
-  <header className = "App-header">On the Lookout!</header>
-  </div>
-  <div className = "App-centertext">
-    <div className = "App-whitetext">
-      You are a police officer patroling on an eerie night. Your job is to be on the look out for any strange driving behaviors from other drivers. Can you keep the roads safe? Press the button below to start the night.</div>
+  <div className = "App-banner">
+      <div className = "App-centertext">
+      <div className = "App-logo">
+        <img src = {logo} alt = "carlogo" width="100" height="100"></img>
+      </div>
+      <header className = "App-header">On the Lookout!</header>
     </div>
-  <div><Link to = {"/game"}>
-  <Button label="start da game"/>
-  </Link>
+  </div>
+  <div className = "App-textwrap">
+    <div className = "App-whitetext">
+      You are a police officer patroling on an eerie night. Your job is to be on the look out for any strange driving behaviors from other drivers. Can you keep the roads safe? Press the button below to start the night.
+    </div>
+  </div>
+  <div className = "App-gameButtonHolder">
+    <div><Link to = {"/game"}>
+      <Button label="start da game"/>
+      </Link>
+    </div>
   </div>
 </div>
 );
 
-  
+
+ 
 }
+
 
 export default App;

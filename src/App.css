@@ -1,13 +1,56 @@
 .App-centertext {
+  display:inherit;
+  width:96;
+  gap: 2vw;
+}
+
+
+.App-banner {
   text-align: center;
+  display:flex;
+  width:100vw;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #422b2b;
 }
+
+
+.App-gameButtonHolder{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  height:30vh;
+}
+
+
+.App-textwrap{
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 0;
+  width:100vw;
+  height: 16vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .App-whitetext{
-  color: white
+  color: white;
+  margin:2rem 10rem;
+  font-size: 3vh;
 }
+
+
 .App-logo {
   height: 20vmin;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -17,29 +60,23 @@
 .App-bg{
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F2b%2F08%2F39%2F2b0839d3e737f91dfd01b2c6d4c203c5.jpg&f=1&nofb=1&ipt=0b3b92c2dff410f34d21d82499a9279ee71e6a9e1919e908c563cf7854affcbe);
   top: auto;
+  height: 100vh;
   background-repeat:'none';
+
 
 }
 .App-header {
-  background-color: #422b2b;
-  min-height: 10vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(3rem + 2vmin);
+  font-weight: bold;
   color: rgb(255, 255, 255);
 }
 
+
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
