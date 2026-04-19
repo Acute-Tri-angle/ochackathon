@@ -1,6 +1,7 @@
 import './Game.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import car from './car.png';
 
 const Game = () => {
   const [activeLane, setActiveLane] = useState(null); // null, 0, 1, or 2
@@ -52,7 +53,7 @@ const Game = () => {
             className={`reckless-car lane-${activeLane}`} 
             onClick={handleCatch}
           >
-            🚗💨
+            <img src = {car} alt = "car" width="400" height="400"></img>
           </div>
         )}
       </div>

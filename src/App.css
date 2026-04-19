@@ -52,11 +52,12 @@
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
+/*@media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+  */
 .App-bg{
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F2b%2F08%2F39%2F2b0839d3e737f91dfd01b2c6d4c203c5.jpg&f=1&nofb=1&ipt=0b3b92c2dff410f34d21d82499a9279ee71e6a9e1919e908c563cf7854affcbe);
   top: auto;
